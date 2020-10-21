@@ -112,6 +112,13 @@ TEST(strings_trimSpace, positive_3_spec) {
     );
 }
 
+TEST(strings_trimSpace, negative_empty_string) {
+    ASSERT_EQ(
+            gfbstd::strings::trimSpace(""),
+            ""
+    );
+}
+
 /* replace */
 
 TEST(strings_replace, positive_same_length) {

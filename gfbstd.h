@@ -52,6 +52,10 @@ namespace gfbstd {
         std::string
         trimSpace(const std::string &s) {
             std::string result = s;
+
+            if (result.empty())
+                return result;
+
             while (isSpace(result[0])) {
                 result = result.substr(1);
             }
