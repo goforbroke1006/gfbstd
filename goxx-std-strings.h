@@ -12,6 +12,7 @@
 namespace goxx_std {
     namespace strings {
 
+        inline
         std::vector<std::string>
         split(const std::string &s, const std::string &sep) {
             std::vector<std::string> result;
@@ -44,11 +45,13 @@ namespace goxx_std {
             return result;
         }
 
+        inline
         bool
         isSpace(char c) {
             return c == ' ' || c == '\n' || c == '\t';
         }
 
+        inline
         std::string
         trimSpace(const std::string &s) {
             std::string result = s;
@@ -65,6 +68,7 @@ namespace goxx_std {
             return result;
         }
 
+        inline
         std::string
         replace(const std::string &s, const std::string &_old, const std::string &_new) {
             std::string result = s;
