@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 
-namespace gfbstd {
+namespace goxx_std {
     namespace strings {
 
         std::vector<std::string>
@@ -82,6 +82,17 @@ namespace gfbstd {
             return result;
         }
 
+        inline
+        std::string
+        join(const std::vector<std::string> &elems, const std::string &sep) {
+            std::string result;
+            for (auto it = elems.begin(); it != elems.end(); it++) {
+                result += (*it);
+                if (std::next(it) != elems.end())
+                    result += sep;
+            }
+            return result;
+        }
     }
 }
 
