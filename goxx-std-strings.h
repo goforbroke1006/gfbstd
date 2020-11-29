@@ -97,6 +97,23 @@ namespace goxx_std {
             }
             return result;
         }
+
+        inline bool
+        hasPrefix(const std::string &s, const std::string &p) {
+            if (p.empty()) return true;
+            if (s.empty()) return false;
+
+            size_t minLen = p.length() < s.length()
+                            ? p.length()
+                            : s.length();
+
+            for (size_t li = 0; li < minLen; ++li) {
+                if (p[li] != s[li])
+                    return false;
+            }
+
+            return true;
+        }
     }
 }
 

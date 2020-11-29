@@ -144,14 +144,14 @@ TEST(strings_replace, positive_diff_length_2) {
 
 TEST(strings_join, positive_1) {
     ASSERT_EQ(
-            goxx_std::strings::join({"hello","world","!!!"}, "_"),
+            goxx_std::strings::join({"hello", "world", "!!!"}, "_"),
             "hello_world_!!!"
     );
 }
 
 TEST(strings_join, positive_2) {
     ASSERT_EQ(
-            goxx_std::strings::join({"hello","world","!!!"}, ""),
+            goxx_std::strings::join({"hello", "world", "!!!"}, ""),
             "helloworld!!!"
     );
 }
@@ -161,6 +161,26 @@ TEST(strings_join, negative_1) {
             goxx_std::strings::join({}, "_"),
             ""
     );
+}
+
+TEST(strings_hasPrefix, positive_1) {
+    ASSERT_TRUE(goxx_std::strings::hasPrefix("foobar", "foo"));
+}
+
+TEST(strings_hasPrefix, positive_2) {
+    ASSERT_TRUE(goxx_std::strings::hasPrefix(" foobar", " "));
+}
+
+TEST(strings_hasPrefix, positive_3) {
+    ASSERT_TRUE(goxx_std::strings::hasPrefix("foobar", ""));
+}
+
+TEST(strings_hasPrefix, negative_1) {
+    ASSERT_FALSE(goxx_std::strings::hasPrefix("foobar", "oob"));
+}
+
+TEST(strings_hasPrefix, negative_2) {
+    ASSERT_FALSE(goxx_std::strings::hasPrefix("", "foo"));
 }
 
 #endif //STRINGS_TEST_H
