@@ -12,8 +12,8 @@ if (CYGWIN)
             )
     include_directories(${EXTERNAL_INSTALL_LOCATION}/include)
     link_directories(${EXTERNAL_INSTALL_LOCATION}/lib)
-    #    add_dependencies(${PROJECT_NAME} googletest)
 endif ()
+
 
 add_executable(${PROJECT_NAME}
         ./main.cpp
