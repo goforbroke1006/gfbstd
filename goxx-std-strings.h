@@ -2,8 +2,8 @@
 // Created by GOFORBROKE on 18.10.2020.
 //
 
-#ifndef GFBSTD_H
-#define GFBSTD_H
+#ifndef GOXX_STD_STRINGS_H
+#define GOXX_STD_STRINGS_H
 
 #include <vector>
 #include <string>
@@ -117,4 +117,4 @@ namespace goxx_std {
     }
 }
 
-#endif //GFBSTD_H
+#endif //GOXX_STD_STRINGS_H
