@@ -12,23 +12,36 @@ namespace goxx_std {
     namespace fmt {
 
         inline
-        std::string sprintf(const std::string &format, const char *args) {
-            va_list vargs;
-            va_start(vargs, args);
+        std::string sprintf(const char *format...) {
+            std::string result = format;
 
-            while (*args != '\0') {
-                if (*args == 'd') {
-                    int i = va_arg(vargs, int);
-                } else if (*args == 'c') {
-                    // note automatic conversion to integral type
-                    char c =  static_cast<char>(va_arg(vargs, int));
-                } else if (*args == 'f') {
+            va_list vargs;
+            va_start(vargs, format);
+
+            size_t startPos = 0;
+            while (startPos < result.length()) {
+                size_t percentPos = result.find('%', startPos);
+                if (percentPos == std::string::npos) break;
+
+                char marker = result.at(percentPos + 1);
+                std::string insertion;
+                if (marker == 'd') {
+                    long i = va_arg(vargs, long);
+                    insertion = std::to_string(i);
+                } else if (marker == 'f') {
                     double d = va_arg(vargs, double);
+                    insertion = std::to_string(d);
+                } else if (marker == 's') {
+                    const char *str = va_arg(vargs, const char *);
+                    insertion = str;
                 }
-                ++args;
+
+                result = result.replace(percentPos, 2, insertion);
             }
 
-            va_end(args);
+            va_end(vargs);
+
+            return result;
         }
 
     }
