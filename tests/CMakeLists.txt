@@ -16,9 +16,10 @@ endif ()
 
 
 add_executable(${PROJECT_NAME}
-        ./main.cpp
+        main.cpp
 
-        ./goxx-std-strings.cpp
+        goxx-std-strings.cpp
+        goxx-std-fmt.cpp
         )
 if (CYGWIN)
     add_dependencies(${PROJECT_NAME} googletest)
