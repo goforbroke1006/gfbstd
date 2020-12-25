@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include "../goxx-std-strings.h"
+#include "../src/strings.h"
 
 TEST(strings_split, empty_string) {
     ASSERT_EQ(

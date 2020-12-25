@@ -6,7 +6,7 @@
 
 #include <vector>
 
-#include "../goxx-std-fmt.h"
+#include "../src/fmt.h"
 
 TEST(fmt_sprintf, simple_1) {
     ASSERT_EQ(

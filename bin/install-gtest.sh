@@ -2,13 +2,15 @@
 
 set -e
 
-sudo apt-get install libgtest-dev
-sudo apt-get install cmake # install cmake
+sudo apt-get install -y libgtest-dev
+sudo apt-get install -y cmake
 
 cd /usr/src/gtest
 sudo cmake CMakeLists.txt
 sudo make
+sudo cp *.a /usr/lib
+sudo cp ./lib/*.a /usr/lib
 
-sudo cp *.a /usr/lib || sudo cp ./lib/*.a /usr/lib
-#sudo ln -s /usr/lib/libgtest.a /usr/local/lib/gtest/libgtest.a
-#sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest/libgtest_main.a
+sudo mkdir -p /usr/local/lib/gtest/
+sudo ln -s /usr/lib/libgtest.a /usr/local/lib/gtest/libgtest.a
+sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest/libgtest_main.a

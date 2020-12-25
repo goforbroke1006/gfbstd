@@ -2,8 +2,8 @@
 // Created by gofor on 22.12.2020.
 //
 
-#ifndef GOXX_STD_GOXX_STD_FMT_H
-#define GOXX_STD_GOXX_STD_FMT_H
+#ifndef GOXX_STD_FMT_H
+#define GOXX_STD_FMT_H
 
 #include <string>
 #include <cstdarg>
@@ -47,4 +47,4 @@ namespace goxx_std {
     }
 }
 
-#endif //GOXX_STD_GOXX_STD_FMT_H
+#endif //GOXX_STD_FMT_H
