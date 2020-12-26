@@ -7,5 +7,6 @@ cd ./build/
 rm -rf ./*
 cmake ..
 make
+make test
 sudo make install
 cd -
