@@ -1,11 +1,7 @@
 # goxx-std
 
+### Install from sources
+
 ```bash
-mkdir -p ./build/
-cd ./build/
-rm -rf ./*
-cmake ..
-make
-sudo make install
-cd -
+bash ./install.sh
 ```

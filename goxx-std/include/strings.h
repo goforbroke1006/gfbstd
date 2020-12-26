@@ -9,12 +9,14 @@
 #include <string>
 #include <sstream>
 
+#include "unicode.h"
+
 namespace goxx_std {
     namespace strings {
 
         inline
         std::vector<std::string>
-        split(const std::string &s, const std::string &sep) {
+        Split(const std::string &s, const std::string &sep) {
             std::vector<std::string> result;
 
             if (s.empty()) {
@@ -46,23 +48,18 @@ namespace goxx_std {
         }
 
         inline
-        bool
-        isSpace(char c) {
-            return c == ' ' || c == '\n' || c == '\t';
-        }
-
-        inline
         std::string
-        trimSpace(const std::string &s) {
+        TrimSpace(const std::string &s) {
             std::string result = s;
 
             if (result.empty())
                 return result;
 
-            while (isSpace(result[0])) {
+
+            while (unicode::IsSpace(result[0])) {
                 result = result.substr(1);
             }
-            while (isSpace(result[result.size() - 1])) {
+            while (unicode::IsSpace(result[result.size() - 1])) {
                 result = result.substr(0, result.size() - 1);
             }
             return result;
@@ -70,7 +67,7 @@ namespace goxx_std {
 
         inline
         std::string
-        replace(const std::string &s, const std::string &_old, const std::string &_new) {
+        Replace(const std::string &s, const std::string &_old, const std::string &_new) {
             std::string result = s;
 
             size_t last = 0;
@@ -88,7 +85,7 @@ namespace goxx_std {
 
         inline
         std::string
-        join(const std::vector<std::string> &elems, const std::string &sep) {
+        Join(const std::vector<std::string> &elems, const std::string &sep) {
             std::string result;
             for (auto it = elems.begin(); it != elems.end(); it++) {
                 result += (*it);
@@ -99,7 +96,7 @@ namespace goxx_std {
         }
 
         inline bool
-        hasPrefix(const std::string &s, const std::string &p) {
+        HasPrefix(const std::string &s, const std::string &p) {
             if (p.empty()) return true;
             if (s.empty()) return false;
 

@@ -12,7 +12,7 @@ namespace goxx_std {
     namespace fmt {
 
         inline
-        std::string sprintf(const char *format...) {
+        std::string Sprintf(const char *format...) {
             std::string result = format;
 
             va_list vargs;
